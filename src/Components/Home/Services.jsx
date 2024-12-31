@@ -1,13 +1,12 @@
 import React from 'react';
-import img from '../assets/groups.jpg';
-import img1 from '../assets/charity.jpg';
-import img2 from '../assets/person.jpg';
-import img3 from '../assets/event.webp'
+import img from '../../assets/groups.jpg';
+import img1 from '../../assets/charity.jpg';
+import img2 from '../../assets/person.jpg';
 import { Link } from 'react-router-dom';
 
 export default function Services() {
   return (
-    <div className='pt-16 bg-gray-50'>
+    <div className=' bg-gray-50'>
       {/* Main Heading */}
       <div className="text-center mb-16 mt-20">
         <h1 className="text-5xl font-extrabold text-gray-800">Our Services</h1>
@@ -74,26 +73,21 @@ export default function Services() {
           </button>
           </Link>
         </div>
-
-        {/* Service 4 */}
-
-        <div className="bg-white p-6 rounded-lg shadow-lg transform transition-all hover:shadow-xl hover:-translate-y-1">
-          <img 
-            src={img3}
-            alt="Personalized Gifting"
-            className="rounded-lg mb-6 w-full h-48 object-cover"/>
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">Events Gifting</h2>
-          <p className="text-gray-600 mb-6">
-          At GiftDgift, we specialize in curating unique gifting solutions for all kinds of events and occasions. Whether it’s a corporate gathering, a wedding celebration, a baby shower, or a festive holiday party, our gifting services are designed to add a personal and meaningful touch to your events.
-          </p>
-          {/* Button */}
-          <Link to="/contact">
-          <button className="bg-slate-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300">
+      </div>
+  <div className="text-center mt-10">
+    <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+      Plans and Pricing
+    </h1>
+    <p className="text-lg md:text-xl text-gray-600">
+      Choose the perfect plan for your gifting needs
+    </p>
+    <Link to="/contact">
+          <button className="bg-slate-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 mb-5 mt-10">
             Contact Us
           </button>
           </Link>
-        </div>
-      </div>
-    </div>
+    
+  </div>
+</div>
   );
 }

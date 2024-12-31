@@ -1,101 +1,150 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to handle scroll event
-  const handleScroll = () => {
-    const top = window.scrollY;
-    setIsScrolled(top > 50); // Navbar becomes solid after scrolling 50px
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 w-full p-4 transition-all duration-300 ${
-        isScrolled || isOpen ? "bg-blue-700" : "bg-transparent"
-      } md:bg-blue-950 z-50`} // The z-50 ensures the navbar stays on top
-    >
-      <div className="container mx-auto flex justify-between items-center">
+    <div className="bg-[#ED3D63] text-white top-0 w-full z-10">
+      <nav className="container mx-auto flex justify-between items-center p-5">
         {/* Logo */}
-        <div className="text-white font-bold text-3xl font-serif">
-          KSHAMA
+        <div className="text-2xl font-bold flex-shrink-0">
+          <img src="" alt="Logo" className="h-20 w-20" />
         </div>
-        {/* Hamburger Icon (Visible on Mobile) */}
+
+        {/* Navigation Links for Desktop */}
+        <ul className="hidden md:flex flex-grow justify-center space-x-6">
+          <li>
+            <a href="/" className="hover:text-gray-300 cursor-pointer text-xl">
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/product"
+              className="hover:text-gray-300 cursor-pointer text-xl"
+            >
+              Product
+            </a>
+          </li>
+          <li>
+            <a
+              href="/service"
+              className="hover:text-gray-300 cursor-pointer text-xl"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              className="hover:text-gray-300 cursor-pointer text-xl"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              className="hover:text-gray-300 cursor-pointer text-xl"
+            >
+              Contact Us
+            </a>
+          </li>
+        </ul>
+
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
-            aria-label={isOpen ? "Close menu" : "Open menu"}>
-            {isOpen ? (
+            onClick={toggleMenu}
+            className="text-white hover:text-gray-300"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
               <svg
-                className="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
                 fill="none"
-                stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"/>
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
-                className="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
                 fill="none"
-                stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"/>
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             )}
           </button>
         </div>
-        {/* Nav Links and Button */}
-        <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } md:flex md:items-center md:w-auto w-full absolute md:relative top-full md:top-0 left-0 bg-blue-700 md:bg-transparent md:flex-row flex-col md:space-x-8 space-y-4 md:space-y-0 py-4 md:py-0 md:px-0 px-4`}>
-          <ul className="text-white md:flex md:space-x-8 space-y-4 md:space-y-0 ">
-            <li className="hover:text-gray-300 text-lg">
-              <Link to="/">Home</Link>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-[#ED3D63] text-white">
+          <ul className="flex flex-col items-center space-y-4 p-4">
+            <li>
+              <a
+                href="/"
+                className="hover:text-gray-300 cursor-pointer text-xl"
+              >
+                Home
+              </a>
             </li>
-            <li className="hover:text-gray-300 text-lg">
-              <Link to="/product">Products</Link>
+            <li>
+              <a
+                href="/product"
+                className="hover:text-gray-300 cursor-pointer text-xl"
+              >
+                Product
+              </a>
             </li>
-            <li className="hover:text-gray-300 text-lg">
-              <a href="#blog">Blog</a>
+            <li>
+              <a
+                href="/service"
+                className="hover:text-gray-300 cursor-pointer text-xl"
+              >
+                Services
+              </a>
             </li>
-            <li className="hover:text-gray-300 text-lg">
-              <a href="/gallery">Gallery</a>
+            <li>
+              <a
+                href="/about"
+                className="hover:text-gray-300 cursor-pointer text-xl"
+              >
+                About
+              </a>
             </li>
-            <li className="hover:text-gray-300 text-lg">
-              <a href="/service">Services</a>
-            </li>
-            <li className="hover:text-gray-300 text-lg">
-              <a href="/about">About</a>
-            </li>
-            <li className="hover:text-gray-300 text-lg">
-              <a href="/contact">Contact Us</a>
+            <li>
+              <a
+                href="/contact"
+                className="hover:text-gray-300 cursor-pointer text-xl"
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      )}
+    </div>
   );
-};
-
-export default Header;
+}

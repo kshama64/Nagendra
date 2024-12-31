@@ -1,29 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-8 pb-4">
       <div className="container mx-auto space-y-6">
-        {/* Row 1: Download the App */}
+        {/* Row 1: Download the App
         <div className="text-center text-2xl font-semibold">
           Download the App
-        </div>
+        </div> */}
         {/* Row 2: App Store and Play Store */}
         <div className="flex justify-center space-x-8">
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRAp0le4Jjiy2OHgq6e8Kd-n297KLVreDnoPRZqMjJ-l4hZr4IvK4xW3u_zge4AQ-lfA&usqp=CAU"
               alt="Download on App Store"
               className="h-10 rounded" />
             <p>Download on App Store</p>
-          </div>
-          <div className="flex flex-col items-center">
+          </div> */}
+          {/* <div className="flex flex-col items-center">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
               alt="Get it on Play Store"
               className="h-10" />
             <p>Get it on Play Store</p>
-          </div>
+          </div> */}
         </div>
         {/* Social Media Icons */}
         <div className="flex gap-5 justify-center">
@@ -55,13 +56,21 @@ const Footer = () => {
 
         {/* Column: Links */}
         <div className="flex justify-center gap-5">
+        <Link to="/">
           <p className="hover:underline cursor-pointer">HOME</p>
+          </Link>
+          <Link to="/product">
           <p className="hover:underline cursor-pointer">PRODUCTS</p>
+          </Link>
+          <Link to="/about">
           <p className="hover:underline cursor-pointer">ABOUT</p>
+          </Link>
+          <Link to="/service">
           <p className="hover:underline cursor-pointer">SERVICES</p>
-          <p className="hover:underline cursor-pointer">GALLERY</p>
-          <p className="hover:underline cursor-pointer">BLOG</p>
+          </Link>
+          <Link to="/contact">
           <p className="hover:underline cursor-pointer">CONTACT</p>
+          </Link>
         </div>
 
         {/* Row 4: Legal Links */}
@@ -69,7 +78,7 @@ const Footer = () => {
           <p className="hover:underline cursor-pointer">Disclaimers</p>
           <p className="hover:underline cursor-pointer">Privacy Policy</p>
           <p className="hover:underline cursor-pointer">Terms & Conditions</p>
-          <p className="hover:underline cursor-pointer">Disclosures</p>
+          {/* <p className="hover:underline cursor-pointer">Disclosures</p> */}
         </div>
 
         {/* Row 5: Footer Info */}
