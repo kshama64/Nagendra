@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
@@ -18,41 +19,41 @@ export default function Nav() {
         {/* Navigation Links for Desktop */}
         <ul className="hidden md:flex flex-grow justify-center space-x-6">
           <li>
-            <a href="/" className="hover:text-gray-300 cursor-pointer text-xl">
+            <Link to="/" className="hover:text-gray-300 cursor-pointer text-xl">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/product"
+            <Link
+              to="/product"
               className="hover:text-gray-300 cursor-pointer text-xl"
             >
               Product
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/service"
+            <Link
+              to="/service"
               className="hover:text-gray-300 cursor-pointer text-xl"
             >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="hover:text-gray-300 cursor-pointer text-xl"
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="hover:text-gray-300 cursor-pointer text-xl"
             >
               Contact Us
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -103,44 +104,44 @@ export default function Nav() {
         <div className="md:hidden bg-[#ED3D63] text-white">
           <ul className="flex flex-col items-center space-y-4 p-4">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/product"
+              <Link
+                to="/product" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 Product
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/service"
+              <Link
+                to="/service" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
+              <Link
+                to="/contact" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
