@@ -137,7 +137,7 @@ export default function Nav() {
             </li>
             <li>
               <Link
-                to="/contact" onClick={() => setIsMenuOpen(false)}
+                to="/contact" 
                 className="hover:text-gray-300 cursor-pointer text-xl"
               >
                 Contact Us
